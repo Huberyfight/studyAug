@@ -17,3 +17,17 @@
 
 ---
 ## 第二章
+```js
+var arr = new Array('1', '2', '3');  
+if (!Array.indexOf) {  
+    Array.prototype.indexOf = function (obj) {  
+        for (var i = 0; i < this.length; i++) {  
+            if (this[i] == obj) {  
+                return i;  
+            }  
+        }  
+        return -1;  
+    }  
+}  
+var index = arr.indexOf('1');//为index赋值为0  
+```
