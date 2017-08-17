@@ -31,3 +31,8 @@ if (!Array.indexOf) {
 }  
 var index = arr.indexOf('1');//为index赋值为0  
 ```
+1. 箭头函数  
+```js
+var fn= x =>x*x;
+console.log(fn(2))//4
+```
