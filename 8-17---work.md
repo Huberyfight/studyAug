@@ -36,3 +36,4 @@ var index = arr.indexOf('1');//为index赋值为0
 var fn= x =>x*x;
 console.log(fn(2))//4
 ```
+2.若果想要实验vue的component，设定好组件好必须要有一个实例，可以查看vue的生命周期图；
