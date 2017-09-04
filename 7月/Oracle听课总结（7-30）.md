@@ -6,12 +6,12 @@
 4. 连接符||，需要连接连接非字段值的时候需要单引号；
 5. 日期进行比较，需要加单引号；
 6. %代表任意多个字符，_代表一位字符，如果想下划线就是代表下划线，加入@，然后去除@；
-```
+```sql
 select ename from emp where ename like 'S@_%' escape '@'
 ```
-如果字段值中包含单引号，直接加入单引号进行标识：
+如果字段值中包含单引号，直接加入单引号进行标识：  
 
-```
+```sql
 select ename from emp where ename like's''%'
 ```
 7. 不要用like取通配时间，not in，not like,is null;
@@ -19,7 +19,7 @@ select ename from emp where ename like's''%'
 9. upper,lower,切换大小写；
 10. concat连接符效果等同于||；可以从一个虚表中显示结果。
 
-```
+```sql
 select concat('hello','world')
 ```
 substr(para,n1,n2)
@@ -34,7 +34,7 @@ n2:截取的长度（不能为负数,省略等于一直截取到尾）
 12.instr(s1,s2,s3,s4)返回s1中s2从s3开始第s4次出现的位置，s3，s4省略默认为1；
 
 
-```
+```sql
 select ename from emp where substr(ename,3,1)='A';
 等价于
 select ename from emp where instr(ename,'A',3,1)=3;
@@ -45,7 +45,7 @@ select ename from emp where instr(ename,'A',1,1)<>0;
 ```
 13.trim功能类似Java中的trim
 
-```
+```sql
 select trim(' 'from ' he llo   ') from dual;
 ```
 14.replace(s1,s2,s3,s4)将s1中的s2用s3替换
@@ -69,14 +69,14 @@ months_between(time1,time2)
 
 next_day(time,str)str为星期，1~7或者英文，中文星期
 
-```
+```sql
 select next_day(sysdate,'星期五') from dual
 ```
 last_day当月的最后一天
 
 17.
 
-```
+```sql
 ---round  将月份四舍五入，不够的保留x月1日
 select hirdate,round(hirdate,'month') from emp
 
@@ -86,7 +86,7 @@ select hiredate,extract(month from hiredate) from emp
 ```
 18.
 
-```
+```sql
 ---日期型
 select hiredate,to_char(hiredate,'YYYY')，
 to_char(hiredate,'YEAR'),
@@ -100,7 +100,7 @@ from dual
 
 
 ---字符型
-select sal,to_char(sal,'$9999,999.99') from emp 
+select sal,to_char(sal,'$9999,999.99') from emp
 
 
 ---数字型
@@ -136,7 +136,7 @@ from emp
 ```
 19.多表连接
 
-```
+```sql
 ---笛卡尔积现象：一张表中的所有行与另一张表中的所有行都发生连接的现象。需要避免
 ---等值连接
 
@@ -162,7 +162,7 @@ select ename,dname from emp join dept d on e.deptno=d.deptno
 
 select ename,dname from emp e left outer join  on e.depno=d.deptno
 
----右外连接 right outer join 
+---右外连接 right outer join
 
 ---full outer join 全外连接
 
@@ -176,7 +176,7 @@ select e.ename,m.ename from emp e,emp m join on e.mgr=m.empno left outer join em
 ```
 20.分组函数
 
-```
+```sql
 ---count,min,max,sum,avg
 ---count 空值不参与运算
 
@@ -221,7 +221,7 @@ select *from emp where empno not in (select distinct mgr from emp)错误！
 
 ---查询出与1981入职的任意一个员工的部门和职位完全相同的员工的姓名、部门、职位、入职日期 不包括1981入职的
 
-select ename,deptno,job,hiredate from emp where (deptno,job) in (select deptno,job from emp where to_char(hiredate,'YYYY')='1981') AND to_char(hiredate,'YYYY') <>'1981' 
+select ename,deptno,job,hiredate from emp where (deptno,job) in (select deptno,job from emp where to_char(hiredate,'YYYY')='1981') AND to_char(hiredate,'YYYY') <>'1981'
 
 ---查询比自己部门平均工资高的员工姓名，工资，部门编号，部门平均工资
 
@@ -229,7 +229,3 @@ select ename, sal, e.deptno, aversal from emp e, (select deptno, avg(sal) aversa
 
 f:select deptno, avg(sal) aversal from emp group by deptno
 ```
-
-
-
-
