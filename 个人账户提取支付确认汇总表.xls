@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="GBK"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font x:Family="Swiss" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s_column_init">
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s_column_string">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Tahoma" x:Family="Swiss" ss:Size="8" ss:Color="#000000"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s_column_number">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Tahoma" x:Family="Swiss" ss:Size="8" ss:Color="#000000"/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s_column_number_round">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Tahoma" x:Family="Swiss" ss:Size="8" ss:Color="#000000"/>
+   <NumberFormat ss:Format="0.00_ "/>
+  </Style>
+  <Style ss:ID="s_column_title">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font x:Family="Swiss" ss:Color="#000000" ss:Bold="1"/>
+   <NumberFormat/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Sheet1">
+  <Table>
+   <Column ss:StyleID="s_column_init" ss:AutoFitWidth="0" ss:Width="40"/>
+   <Column ss:StyleID="s_column_init" ss:AutoFitWidth="0" ss:Width="65"/>
+   <Column ss:StyleID="s_column_init" ss:AutoFitWidth="0" ss:Width="65"/>
+   <Column ss:StyleID="s_column_init" ss:AutoFitWidth="0" ss:Width="65"/>
+   <Column ss:StyleID="s_column_init" ss:AutoFitWidth="0" ss:Width="65"/>
+   <Column ss:StyleID="s_column_init" ss:AutoFitWidth="0" ss:Width="65"/>
+   <Column ss:StyleID="s_column_init" ss:AutoFitWidth="0" ss:Width="65"/>
+   <Column ss:StyleID="s_column_init" ss:AutoFitWidth="0" ss:Width="65"/>
+   <Column ss:StyleID="s_column_init" ss:AutoFitWidth="0" ss:Width="65"/>
+   <Column ss:StyleID="s_column_init" ss:AutoFitWidth="0" ss:Width="65"/>
+   <Column ss:StyleID="s_column_init" ss:AutoFitWidth="0" ss:Width="65"/>
+   <Column ss:StyleID="s_column_init" ss:AutoFitWidth="0" ss:Width="65"/>
+   <Row>
+    <Cell ss:StyleID="s_column_title"><Data ss:Type="String">序号</Data></Cell>
+    <Cell ss:StyleID="s_column_title"><Data ss:Type="String">个人编号</Data></Cell>
+    <Cell ss:StyleID="s_column_title"><Data ss:Type="String">参保人姓名</Data></Cell>
+    <Cell ss:StyleID="s_column_title"><Data ss:Type="String">身份证号</Data></Cell>
+    <Cell ss:StyleID="s_column_title"><Data ss:Type="String">账号</Data></Cell>
+    <Cell ss:StyleID="s_column_title"><Data ss:Type="String">开户人姓名</Data></Cell>
+    <Cell ss:StyleID="s_column_title"><Data ss:Type="String">金额</Data></Cell>
+    <Cell ss:StyleID="s_column_title"><Data ss:Type="String">开户行名称</Data></Cell>
+    <Cell ss:StyleID="s_column_title"><Data ss:Type="String">联系电话</Data></Cell>
+    <Cell ss:StyleID="s_column_title"><Data ss:Type="String">领取人</Data></Cell>
+    <Cell ss:StyleID="s_column_title"><Data ss:Type="String">领取人证件号码</Data></Cell>
+    <Cell ss:StyleID="s_column_title"><Data ss:Type="String">备注</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s_column_string"><Data ss:Type="String">1</Data></Cell>
+    <Cell ss:StyleID="s_column_string"><Data ss:Type="String">1310991039030</Data></Cell>
+    <Cell ss:StyleID="s_column_string"><Data ss:Type="String">李大起</Data></Cell>
+    <Cell ss:StyleID="s_column_string"><Data ss:Type="String">123456195909024017</Data></Cell>
+    <Cell ss:StyleID="s_column_string"><Data ss:Type="String">773734342424234</Data></Cell>
+    <Cell ss:StyleID="s_column_string"><Data ss:Type="String">李大起</Data></Cell>
+    <Cell ss:StyleID="s_column_number_round"><Data ss:Type="Number">227.11</Data></Cell>
+    <Cell ss:StyleID="s_column_string"><Data ss:Type="String">秦皇岛燕大支行</Data></Cell>
+    <Cell ss:StyleID="s_column_string"><Data ss:Type="String">18712671234</Data></Cell>
+    <Cell ss:StyleID="s_column_string"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="s_column_string"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="s_column_string"><Data ss:Type="String"></Data></Cell>
+   </Row>
+  </Table>
+ </Worksheet>
+</Workbook>
