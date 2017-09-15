@@ -2,7 +2,7 @@
 
 1.两张表结构相同
 
-```
+```sql
 insert into emp2 select *from emp1 where deptno=10;
 
 insert into emp2(ename,deptno) select ename,deptno from emp1 where deptno=10;
@@ -11,7 +11,7 @@ insert into emp2(ename,deptno) select ename,deptno from emp1 where deptno=10;
 ```
 2.update
 
-```
+```sql
 update emp2 set deptno=10 where deptno is null;
 
 ---涨工资
@@ -33,7 +33,7 @@ update emp2 set sal=sal+200 where deptno=10;
 ```
 3.建立表
 
-```
+```sql
 ---建表的同时将数据插入
 
 create table emp3 as select empno,ename from emp;
@@ -50,18 +50,20 @@ create table emp5 as select ename(名字),deptno（部门） from emp;
 ```
 4.修改表
 
-```
+```sql
 alter table emp2 add(学号 number(10), 学籍 varchar2(20))
 
 alter table emp2 modify(学号 varchar2(23));
 
 alter table emp2 drop(学号，学籍);
 
-drop table emp2;
+drop table emp2;  
+
+
 ```
 5.序列
 
-```
+```sql
 ---修改序列的最大值不能小于当前序列的值；
 ---rowid 标示数据库中每一行数据的物理地址；
 ---index 是对数据库中的一列或多列进行排序的一种数据库对象；经常出现在where子句中的条件适合索引。主键和唯一键自带索引
@@ -93,6 +95,3 @@ selecte ename,deptno from emp where deptno=10 union  select ename,deptno,sal fro
 
 select ename,sal from emp e where sal > (select avg(sal) from emp where deptno=e.deptno)
 ```
-
-
-
