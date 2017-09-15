@@ -229,3 +229,4 @@ select ename, sal, e.deptno, aversal from emp e, (select deptno, avg(sal) aversa
 
 f:select deptno, avg(sal) aversal from emp group by deptno
 ```
+增加内容测试喽
