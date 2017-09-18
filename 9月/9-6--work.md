@@ -47,3 +47,5 @@ console:
 
 - value.propName
 - value['propName']  
+- don't complete chinese.
+
