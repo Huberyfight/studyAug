@@ -44,3 +44,19 @@ from emp;
 - 触发器的body部分不能超过32760个字节
 - 一般情况下非系统触发器是不能调用DDL,DCL,TCL
 - 尽量避免使用LONG,LONG RAW
+```sql
+create or replace trigger trig1
+  before delete on emp
+declare
+  x number := 10;
+begin
+  dbms_output.put_line('delete on emp' || x);
+end trig1;
+
+
+```
+测试语句
+
+```sql
+delete from emp where empno=9999;
+```
