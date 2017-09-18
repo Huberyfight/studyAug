@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>百度搜索框</title>
+  <style>
+      .current{
+        background-color: #ccc;
+      }
+  </style>
+  <script src="js/vue.js" charset="utf-8"></script>
+  <script src="js/vue-resource.min.js" charset="utf-8"></script>
+  <script src="js/search.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+  <div id="el">
+    搜索：<input type="text" @keyup="getResult($event)" v-model="keyWord" @keydown.down.prevent="changeDown()" @keydown.up.prevent="changeUp()">
+    <ul>
+      <li v-for="(value,index) in result" :class="{current:index==now,}">
+        {{value}}
+      </li>
+    </ul>
+    <p v-show="result.length==0">暂无数据。。。</p>
+  </div>
+</body>
+
+</html>

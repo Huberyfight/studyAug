@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue study</title>
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/vue.js"></script>
+  <script src="bootstrap/jquery.min.js"></script>
+  <script src="bootstrap/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2 class="text-center">添加用户</h2>
+    <form class="form-horizontal">
+
+      <div class="form-group">
+        <label for="name" class="control-label col-sm-2 col-sm-offset-2">姓 名：</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="name" v-model="user.name" placeholder="请输入名字" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="age" class="control-label col-sm-2 col-sm-offset-2">年 龄：</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="age" v-model="user.age" placeholder="请输入年龄" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email" class="control-label col-sm-2 col-sm-offset-2">邮 箱：</label>
+        <div class="col-sm-6">
+          <input type="email" class="form-control" id="email" v-model="user.email" placeholder="请输入邮箱" >
+        </div>
+      </div>
+      <div class="form-group text-center">
+        <button type="button"  class="btn btn-primary" v-on:click="addUser">添 加</button>
+        <button type="reset"   class="btn btn-primary">重 置</button>
+      </div>
+    </form>
+    <hr>
+
+  <table class="table table-bordered table-hover">
+    <caption class="h3 text-info text-center">用户列表</caption>
+    <thead>
+      <tr>
+        <th class="text-center">序号</th>
+        <th class="text-center">姓名</th>
+        <th class="text-center">年龄</th>
+        <th class="text-center">邮箱</th>
+        <th class="text-center">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(user,index) in users" class="text-center">
+        <td>{{index+1}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <input type="checkbox"  class="btn btn-danger btn-sm"   v-model="nowIndex" v-bind:value="user.name">
+        </td>
+      </tr>
+      <tr class="text-right">
+        <td colspan="5">
+            <button type="button" name="button" class="btn btn-danger" data-toggle="modal" data-target="#del">删除所有</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<!-- 模态框-->
+<div class="modal" id="del">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+            <!-- <h4 class="modal-title" v-if="nowIndex!==-1">确认要删除用户:{{users[nowIndex]?users[nowIndex].name:''}}吗？</h4> -->
+            <h4 class="modal-title" v-if="nowIndex.length==0">请选择要删除的用户</h4>
+            <h4 class="modal-title" v-if="nowIndex.length!=0">确认删除用户：
+              <ol>
+                <li v-for="name in nowIndex">{{name}}</li>
+              </ol>
+              <!-- <span v-for="index in nowIndex">{{users[index].name}},</span> -->
+            </h4>
+      </div>
+      <div class="modal-body text-center">
+            <button class="btn btn-primary" data-dismiss="modal" >取消</button>
+            <button class="btn btn-primary" data-dismiss="modal" v-on:click="deleteUser" >确认</button>
+            <!-- <button class="btn btn-primary" data-dismiss="modal"  v-if="nowIndex.length==0">确定</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>comandSelf</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="itany">
+		<!-- <h3 v-hello>{{msg}}</h3> -->
+		<h3 v-chuancan:wef.stop.reff='username'>welcom world</h3>
+		<hr>
+		<input type="text" v-foc>
+		<button @click="update">更新数据</button>
+		<button @click="uninstall">卸载指令</button>
+	</div>
+	<script>
+		/**
+		 * 测试directive的五个阶段
+		 * 其中 初始化的时候会调用bind和inserted
+		 * 更新的时候会调用update和componentUpdate
+		 * 
+		 */
+
+		Vue.directive('hello',{
+			bind(){//常用！
+				alert('初始化的时候调用，只调用一次')
+			},
+			inserted(){
+				alert('插入dom的时候调用，只调用一次');
+			},
+			update(){
+				alert('更新操作，每次更新的时候都要调用');
+			},
+			componentUpdated(){
+				alert('组件更新的时候调用');
+			},
+			unbind(){
+				alert('与元素解绑的时候调用');
+			}
+		});
+
+		Vue.directive('chuancan',{
+			bind(el,binding){
+				console.log(el);
+				console.log(binding);
+			}
+		});
+
+		Vue.directive('foc',{
+			inserted:function (el) {
+				el.focus();
+			}
+		});
+		var vm=new Vue({
+			data:{
+				msg:'hello',
+				username:'tom',
+			},
+			methods:{
+				update(){
+					this.msg='测试成功';
+				},
+				uninstall(){
+					this.msg='';
+				}
+			}
+		}).$mount('#itany')
+		
+		
+	</script>
+</body>
+</html>
