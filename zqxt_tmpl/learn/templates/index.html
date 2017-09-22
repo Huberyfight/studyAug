@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>测试用例</title>
+</head>
+
+<body>
+    <h1>部门列表</h1>
+    <table border=1 px cellpadding="3" style="font-family:Arial">
+        <tr>
+            <th>部门id</th>
+            <th>部门名字</th>
+            <th>部门位置</th>
+        </tr>
+        {% for dept in depts %}
+        <tr>
+            <td>{{dept.deptno}}</td>
+            <td>{{dept.dname}}</td>
+            <td>{{dept.loc}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

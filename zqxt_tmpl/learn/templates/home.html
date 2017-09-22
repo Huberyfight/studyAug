@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>欢迎光临</title>
+	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/js/echarts.min.js"></script>
+</head>
+<body>
+	{% extends 'base.html' %}
+	{% block title %}欢迎光临首页{% endblock %}
+
+	{% block content %}
+		{% comment %}
+			教程列表：
+			
+			{% for i in TutorialList %}
+				{{i}}
+			{% endfor %} 
+			
+			
+		{% endcomment %}
+
+		{# 站点：{{info_dict.site}} 内容：{{info_dict.content}} #}
+
+		{% comment %}
+			{% for key,value in info_dict.items %}
+			{{key}}:{{value}}<br>
+			{% endfor %}
+		{% endcomment %}
+		
+		{% comment %}
+			{% for item in List %}
+				{{item}}
+				{% if not forloop.last %}
+					,
+				{% endif %}
+			{% endfor %}
+		{% endcomment %}
+		
+		{% comment %}
+			<ul>
+			{% for athlete in List %}
+				<li>{{athlete.name}}</li>
+			{% empty %}
+				<li>抱歉，列表为空</li>
+			{% endfor %}
+			</ul>
+		{% endcomment %}
+		
+
+		{% comment %}
+			{% url 'add' 4 5 as the_url %}
+			<a href="{{ the_url }}">连接到：{{ the_url }}</a>
+		{% endcomment %}
+		
+		{% comment %}
+			{% if var >= 90 %}
+				成绩优秀
+			{% elif var >= 80%}
+				成绩良好
+			{% elif var >= 79%}
+				成绩一般
+			{% else %}
+				不及格
+			{% endif %}
+		{% endcomment %}
+
+
+
+		{% comment %}
+			{{request.user}}<br>{#匿名用户#}
+			{{request.path}}<br>{#当前网址#}
+			{{request.GET.urlencode}}<br>{#获取当前GET参数#}
+			{% if request.user.is_authenticated %}
+				{{request.user.username}},您好！
+			{% else %}
+				<a href="">请登录,放置登陆链接</a>
+			{% endif %}<br>
+		{% endcomment %}
+		
+		
+		
+		{# <a href="{{ request.path }}?{{ request.GET.urlencode }}&delete=1">当前网址加参数 delete</a> #}
+		<div id="main" style="width: 600px;height:400px;"></div>
+		<script type="text/javascript">
+	        // 基于准备好的dom，初始化echarts实例
+	        var myChart = echarts.init(document.getElementById('main'));
+
+	        // 指定图表的配置项和数据
+	        var option = {
+	            title: {
+	                text: 'ECharts 入门示例'
+	            },
+	            tooltip: {},
+	            legend: {
+	                data:['部门人数']
+	            },
+	            xAxis: {
+	                data: []
+	            },
+	            yAxis: {},
+	            series: [{
+	                name: '部门人数',
+	                type: 'bar',
+	                data: []
+	            }]
+	        };
+	        // 使用刚指定的配置项和数据显示图表。
+	        myChart.setOption(option);
+	        myChart.showLoading();
+	        setInterval(function () {
+	        	$.ajax({
+	                type: "GET",
+	                url: "/dept/",
+	                contentType: "application/json;charset=utf-8",
+	                dataType: "json",
+	                success: function(data) {
+	                   // console.log(data);
+	                   myChart.hideLoading();
+	                   myChart.setOption({
+					        xAxis: {
+					            data: data.categories
+					        },
+					        series: [{
+					            // 根据名字对应到相应的系列
+					            name: '部门人数',
+					            data: data.data
+					        }]
+					    });
+	                }, 
+	                error: function(error) {
+	               		console.log('error');
+	                }
+           		});
+	        },500);
+	         
+
+	        
+	   	</script>
+	{% endblock%}
+
+</body>
+</html>
